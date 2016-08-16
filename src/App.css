@@ -1,0 +1,53 @@
+html{
+  background-color: #993D26;
+  background-image: url('https://whiskeycharmers.files.wordpress.com/2014/10/desert-background-images-2.jpg');
+}
+.choice {
+  font-size: 2em;
+  background-color: #7C3A2E;
+  margin-top: 10px;
+  color: #F6BA50;
+  text-shadow: 1px 1px 3px white;
+}
+button {
+  font-size: 3em;
+  background-color: #F6BA50;
+  margin: 3px;
+}
+
+.App {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.Word {
+  font-family: 'Amatic SC', cursive;
+  font-size: 5em;
+  margin-bottom: 100px;
+}
+
+.Letter {
+  display: inline-block;
+  width: 1.5em;
+  text-align: center;
+  border-bottom: 5px solid #472D1C;
+  color: transparent;
+  margin: 0 0.05em;
+}
+
+.Letter.revealed {
+  color: #FADB81;
+  text-shadow: 2px 2px 5px gray;
+}
+
+.Board {
+  text-align: center;
+}
+
+.Win, .Lose, .Err {
+  font-family: 'Amatic SC', cursive;
+  font-size: 5em;
+  color: white;
+  text-align: center;
+}
