@@ -2,11 +2,11 @@ import React, { Component } from 'react'
 import Hangman from './Hangman'
 import Word from './Word'
 import Board from './Board'
-import './App.css'
 import words from './words.json'
 import Win from './Win'
 import Lose from './Lose'
 import Err from './Err'
+import './App.css'
 
 class App extends Component {
   constructor () {
@@ -19,17 +19,17 @@ class App extends Component {
       currentScreen: 'game'
     }
   }
+
   chooseWord = () => {
     let choice = words[Math.floor(Math.random() * words.length)]
     this.setState({solution: choice})
     console.log(this.state.solution)
   }
+
   onPlay = (letter) => {
-    let used = this.state.used
-    let matched = this.state.matched
-    let solution = this.state.solution
+    let { used, matched, solution, currentNumWrongGuesses } = this.state
     let match = false
-    this.state.used.push(letter)
+    used.push(letter)
     for (let i = 0; i < solution.length; i++) {
       if (letter === solution[i]) {
         matched.push(letter)
@@ -43,8 +43,8 @@ class App extends Component {
           this.setState({ currentScreen: 'win' })
       }, 500)
       }
-    } else this.setState({ currentNumWrongGuesses: this.state.currentNumWrongGuesses + 1 })
-    if (this.state.currentNumWrongGuesses === 6) {
+    } else this.setState({ currentNumWrongGuesses: currentNumWrongGuesses + 1 })
+    if (currentNumWrongGuesses === 6) {
       setTimeout(() => {
         this.setState({currentScreen: 'lose'})
       }, 500)
